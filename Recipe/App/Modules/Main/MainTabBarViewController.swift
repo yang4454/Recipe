@@ -10,18 +10,15 @@ import Foundation
 import ESTabBarController_swift
 
 enum HomeTabBarItem: Int {
-    case home, find,topic, profile
+    case home, classification, profile
     
     var controller: NavigationController {
         switch self {
         case .home:
             let vc = HomeViewController()
             return NavigationController(rootViewController: vc)
-        case .find:
-            let vc = FindViewController()
-            return NavigationController(rootViewController: vc)
-        case .topic:
-            let vc = TopicViewController()
+        case .classification:
+            let vc = ClassificationViewController()
             return NavigationController(rootViewController: vc)
         case .profile:
             let vc = MineViewController()
@@ -33,10 +30,8 @@ enum HomeTabBarItem: Int {
         switch self {
         case .home:
             return "tab_home".image
-        case .find:
+        case .classification:
             return "tab_find".image
-        case .topic:
-            return "tab_topic".image
         case .profile:
             return "tab_mine".image
         }
@@ -46,10 +41,8 @@ enum HomeTabBarItem: Int {
         switch self {
         case .home:
             return "tab_home_select".image
-        case .find:
+        case .classification:
             return "tab_find_select".image
-        case .topic:
-            return "tab_topic_select".image
         case .profile:
             return "tab_mine_select".image
         }
@@ -59,10 +52,8 @@ enum HomeTabBarItem: Int {
         switch self {
         case .home:
             return "首页"
-        case .find:
-            return "发现"
-        case .topic:
-            return "主题"
+        case .classification:
+            return "分类"
         case .profile:
             return "我的"
         }
@@ -76,7 +67,7 @@ class MainTabBarViewController: ESTabBarController {
         super.viewDidLoad()
         
         var navCtls: [NavigationController] = [NavigationController]()
-        let items: [HomeTabBarItem] = [.home, .find, .topic, .profile]
+        let items: [HomeTabBarItem] = [.home, .classification, .profile]
         
         items.forEachEnumerated { (index, item) in
             let controller = item.controller

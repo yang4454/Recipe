@@ -114,6 +114,14 @@
 		1849671A250F7E0100E4815F /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184966D6250F7E0100E4815F /* NSObjectExtensions.swift */; };
 		1849671B250F7E0100E4815F /* QorumLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184966D8250F7E0100E4815F /* QorumLogs.swift */; };
 		1849671C250F7E0100E4815F /* SwiftNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184966D9250F7E0100E4815F /* SwiftNormal.swift */; };
+		184967272510513600E4815F /* MoyaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184967262510513600E4815F /* MoyaAPI.swift */; };
+		184967342510563100E4815F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184967332510563100E4815F /* HomeViewController.swift */; };
+		1849673E2510575300E4815F /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849673D2510575300E4815F /* MineViewController.swift */; };
+		184967402510579F00E4815F /* ClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849673F2510579F00E4815F /* ClassificationViewController.swift */; };
+		18496744251059E700E4815F /* MineHeaderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18496743251059E700E4815F /* MineHeaderItemCell.swift */; };
+		1849674625105A0900E4815F /* MineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849674525105A0900E4815F /* MineHeaderView.swift */; };
+		1849674825108D8300E4815F /* ClassificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849674725108D8300E4815F /* ClassificationTableViewCell.swift */; };
+		1849674C2510BD5A00E4815F /* DishesListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849674B2510BD5A00E4815F /* DishesListCollectionViewCell.swift */; };
 		C64C77EAF181896941F586D0 /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0279008270829480E23552A /* Pods_Recipe.framework */; };
 /* End PBXBuildFile section */
 
@@ -248,6 +256,15 @@
 		184966D6250F7E0100E4815F /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
 		184966D8250F7E0100E4815F /* QorumLogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QorumLogs.swift; sourceTree = "<group>"; };
 		184966D9250F7E0100E4815F /* SwiftNormal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNormal.swift; sourceTree = "<group>"; };
+		184967202510506900E4815F /* Recipe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Recipe-Bridging-Header.h"; sourceTree = "<group>"; };
+		184967262510513600E4815F /* MoyaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaAPI.swift; sourceTree = "<group>"; };
+		184967332510563100E4815F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1849673D2510575300E4815F /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		1849673F2510579F00E4815F /* ClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationViewController.swift; sourceTree = "<group>"; };
+		18496743251059E700E4815F /* MineHeaderItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineHeaderItemCell.swift; sourceTree = "<group>"; };
+		1849674525105A0900E4815F /* MineHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineHeaderView.swift; sourceTree = "<group>"; };
+		1849674725108D8300E4815F /* ClassificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationTableViewCell.swift; sourceTree = "<group>"; };
+		1849674B2510BD5A00E4815F /* DishesListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesListCollectionViewCell.swift; sourceTree = "<group>"; };
 		496ADE17DD7DE35B406AC658 /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		99027C91C8C7CFA7000B24CB /* Pods-Recipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.debug.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.debug.xcconfig"; sourceTree = "<group>"; };
 		F0279008270829480E23552A /* Pods_Recipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,6 +328,7 @@
 				1849660E250F67E800E4815F /* Assets.xcassets */,
 				18496610250F67E800E4815F /* LaunchScreen.storyboard */,
 				18496613250F67E800E4815F /* Info.plist */,
+				184967202510506900E4815F /* Recipe-Bridging-Header.h */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -336,6 +354,7 @@
 		18496635250F682500E4815F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				184967252510513600E4815F /* API */,
 				1849668B250F7E0100E4815F /* Utils */,
 				1849663F250F7C7400E4815F /* Base */,
 				18496636250F682F00E4815F /* Modules */,
@@ -365,6 +384,9 @@
 		1849663A250F689500E4815F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1849673B2510572C00E4815F /* Model */,
+				1849673C2510572C00E4815F /* View */,
+				184967282510555400E4815F /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -372,6 +394,9 @@
 		1849663B250F689E00E4815F /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				18496737251056DD00E4815F /* Model */,
+				18496736251056DD00E4815F /* View */,
+				18496735251056C400E4815F /* Controller */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -379,6 +404,9 @@
 		1849663C250F68DA00E4815F /* Classification */ = {
 			isa = PBXGroup;
 			children = (
+				18496738251056FE00E4815F /* Controller */,
+				18496739251056FE00E4815F /* Model */,
+				1849673A251056FE00E4815F /* View */,
 			);
 			path = Classification;
 			sourceTree = "<group>";
@@ -656,6 +684,84 @@
 			path = Logs;
 			sourceTree = "<group>";
 		};
+		184967252510513600E4815F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				184967262510513600E4815F /* MoyaAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		184967282510555400E4815F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				184967332510563100E4815F /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18496735251056C400E4815F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1849673D2510575300E4815F /* MineViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18496736251056DD00E4815F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1849674525105A0900E4815F /* MineHeaderView.swift */,
+				18496743251059E700E4815F /* MineHeaderItemCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18496737251056DD00E4815F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18496738251056FE00E4815F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1849673F2510579F00E4815F /* ClassificationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18496739251056FE00E4815F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1849673A251056FE00E4815F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1849674725108D8300E4815F /* ClassificationTableViewCell.swift */,
+				1849674B2510BD5A00E4815F /* DishesListCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1849673B2510572C00E4815F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1849673C2510572C00E4815F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CE5AEDF7D88809E0C06A4BDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -743,6 +849,7 @@
 				TargetAttributes = {
 					18496601250F67E700E4815F = {
 						CreatedOnToolsVersion = 11.7;
+						LastSwiftMigration = 1170;
 					};
 					18496617250F67E800E4815F = {
 						CreatedOnToolsVersion = 11.7;
@@ -867,6 +974,7 @@
 				18496718250F7E0100E4815F /* FloatingPointExtensions.swift in Sources */,
 				184966E6250F7E0100E4815F /* UITextViewExtensions.swift in Sources */,
 				18496683250F7C7400E4815F /* TableCornersCell.swift in Sources */,
+				184967342510563100E4815F /* HomeViewController.swift in Sources */,
 				1849667B250F7C7400E4815F /* NavigationController.swift in Sources */,
 				184966EF250F7E0100E4815F /* UIApplicationExtensions.swift in Sources */,
 				184966E5250F7E0100E4815F /* UITextFieldExtensions.swift in Sources */,
@@ -885,9 +993,11 @@
 				18496717250F7E0100E4815F /* FileManagerExtension.swift in Sources */,
 				184966EA250F7E0100E4815F /* UIViewExtensions.swift in Sources */,
 				184966E0250F7E0100E4815F /* TextLinePositionModifier.swift in Sources */,
+				18496744251059E700E4815F /* MineHeaderItemCell.swift in Sources */,
 				18496686250F7C7400E4815F /* TableViewHeaderFooterView.swift in Sources */,
 				1849670C250F7E0100E4815F /* BlockPan.swift in Sources */,
 				1849667A250F7C7400E4815F /* ShareItemCell.swift in Sources */,
+				1849674825108D8300E4815F /* ClassificationTableViewCell.swift in Sources */,
 				184966DA250F7E0100E4815F /* RPCircularProgress.swift in Sources */,
 				1849666C250F7C7400E4815F /* ShareView.swift in Sources */,
 				18496719250F7E0100E4815F /* NSDictionaryExtensions.swift in Sources */,
@@ -906,6 +1016,7 @@
 				184966FA250F7E0100E4815F /* UIColor+Extensions.swift in Sources */,
 				184966E7250F7E0100E4815F /* UIStoryboardExtensions.swift in Sources */,
 				1849670D250F7E0100E4815F /* BlockSwipe.swift in Sources */,
+				184967272510513600E4815F /* MoyaAPI.swift in Sources */,
 				1849671A250F7E0100E4815F /* NSObjectExtensions.swift in Sources */,
 				184966F1250F7E0100E4815F /* UIAlertControllerExtensions.swift in Sources */,
 				184966F4250F7E0100E4815F /* CGRectExtensions.swift in Sources */,
@@ -924,15 +1035,19 @@
 				184966FC250F7E0100E4815F /* CGPointExtensions.swift in Sources */,
 				18496606250F67E700E4815F /* AppDelegate.swift in Sources */,
 				18496702250F7E0100E4815F /* CollectionsExtension.swift in Sources */,
+				184967402510579F00E4815F /* ClassificationViewController.swift in Sources */,
 				1849667C250F7C7400E4815F /* NavigationView.swift in Sources */,
 				184966DD250F7E0100E4815F /* MoyaRequestProtocol.swift in Sources */,
+				1849673E2510575300E4815F /* MineViewController.swift in Sources */,
 				184966FE250F7E0100E4815F /* DictionaryExtensions.swift in Sources */,
 				18496707250F7E0100E4815F /* DateExtensions.swift in Sources */,
 				18496712250F7E0100E4815F /* PathManager.swift in Sources */,
 				184966DB250F7E0100E4815F /* MoyaResponse.swift in Sources */,
 				184966EE250F7E0100E4815F /* UILabelExtensions.swift in Sources */,
+				1849674625105A0900E4815F /* MineHeaderView.swift in Sources */,
 				184966F8250F7E0100E4815F /* String+Extensions.swift in Sources */,
 				184966EC250F7E0100E4815F /* UIBarButtonItem+Extension.swift in Sources */,
+				1849674C2510BD5A00E4815F /* DishesListCollectionViewCell.swift in Sources */,
 				184966E2250F7E0100E4815F /* MYCollectionViewFlowLayout.swift in Sources */,
 				184966ED250F7E0100E4815F /* UIWindowExtensions.swift in Sources */,
 				184966FF250F7E0100E4815F /* StringExtensions.swift in Sources */,
@@ -1123,6 +1238,7 @@
 			baseConfigurationReference = 99027C91C8C7CFA7000B24CB /* Pods-Recipe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Recipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1131,6 +1247,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kkkkk.Recipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Recipe/Recipe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1141,6 +1259,7 @@
 			baseConfigurationReference = 496ADE17DD7DE35B406AC658 /* Pods-Recipe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Recipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1149,6 +1268,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kkkkk.Recipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Recipe/Recipe-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
