@@ -49,7 +49,19 @@ extension UIView {
         return window ?? UIView()
     }
 }
-
+//MARK: - UIView转UIImage
+extension UIView
+{
+    static func getImageFromView(view: UIView) -> UIImage {
+    // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了
+        UIGraphicsBeginImageContextWithOptions(view.size, false, UIScreen.main.scale)
+        let context = UIGraphicsGetCurrentContext()
+        view.layer.render(in: context!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+}
 // MARK: - Line
 extension UIView {
     func addBottomLine(height: CGFloat = 0.5, color: UIColor = kCellLineColor, pading: CGFloat = 0) {

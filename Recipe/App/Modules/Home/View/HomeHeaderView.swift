@@ -1,26 +1,25 @@
 //
-//  HomeViewController.swift
+//  HomeViewHeadView.swift
 //  Recipe
 //
-//  Created by apple on 2020/9/15.
+//  Created by apple on 2020/9/16.
 //  Copyright © 2020 apple. All rights reserved.
 //
 
 import UIKit
 import FSPagerView
 
-/// 首页
-class HomeViewController: ViewController {
+//protocol HomeHeaderViewDelegate: NSObjectProtocol {
+//
+//    
+//}
 
-    private var lists: [String] = ["screen_1", "screen_2","screen_3"]
+/// 首页头部视图
+class HomeHeaderView: BaseView {
+
+//    var delegate: HomeHeaderViewDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navView.isHidden = true
-        view.backgroundColor = UIColor.white
-        view.addSubview(pagerView)
-        // Do any additional setup after loading the view.
-    }
+    private var lists: [String] = ["screen_1", "screen_2","screen_3"]
     
     /// 轮播
     lazy var pagerView: FSPagerView = {
@@ -38,7 +37,9 @@ class HomeViewController: ViewController {
     }()
 
 }
-extension HomeViewController: FSPagerViewDataSource, FSPagerViewDelegate {
+
+
+extension HomeHeaderView: FSPagerViewDataSource, FSPagerViewDelegate {
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         return lists.count
     }

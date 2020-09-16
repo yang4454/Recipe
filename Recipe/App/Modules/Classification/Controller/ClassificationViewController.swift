@@ -18,6 +18,8 @@ class ClassificationViewController: ViewController {
 
     private var mineList = [ClassificationItem]()
     private var dishesList = [DishesListItem]()
+    
+    private var dishesListHeather = [DishesListItemHeather]()
 
 
     override func viewDidLoad() {
@@ -43,24 +45,23 @@ class ClassificationViewController: ViewController {
         super.viewWillAppear(animated)
 
     }
-
-    lazy var headerView: MineHeaderView = {
-        let headerView = MineHeaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 280 + ez.screenStatusBarHeight))
-        return headerView
-    }()
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         
+        layout.headerReferenceSize = CGSize(width: SCREEN_WIDTH-80, height: kHomeImageHeight)
         layout.itemSize = CGSize(width: kHomeImageWidth, height: kHomeImageHeight)
         layout.minimumInteritemSpacing = kHomeImagePad
         layout.minimumLineSpacing = kHomeImagePad
         
         let iv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         iv.backgroundColor = UIColor.clear
+//        iv.alwaysBounceHorizontal = true
+//        iv.alwaysBounceVertical = true
         iv.showsHorizontalScrollIndicator = false
         iv.showsVerticalScrollIndicator = false
         iv.register(DishesListCollectionViewCell.self, forCellWithReuseIdentifier: DishesListCollectionViewCell.cellIdentifier)
+        iv.register(DishesListCollectionViewHeatherCell.self, forCellWithReuseIdentifier: DishesListCollectionViewHeatherCell.cellIdentifier)
         iv.dataSource = self
         iv.delegate = self
 
@@ -88,8 +89,9 @@ class ClassificationViewController: ViewController {
 }
 extension ClassificationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 5
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -100,6 +102,14 @@ extension ClassificationViewController: UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishesListCollectionViewCell.cellIdentifier, for: indexPath) as! DishesListCollectionViewCell
         cell.model = dishesList[indexPath.row]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishesListCollectionViewHeatherCell.cellIdentifier, for: indexPath) as! DishesListCollectionViewHeatherCell
+        cell.model = dishesListHeather[indexPath.section]
+        return cell
+        
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -114,6 +124,8 @@ extension ClassificationViewController {
         self.mineList.append(ClassificationItem(title: "五谷杂粮"))
         self.mineList.append(ClassificationItem(title: "猪肉"))
         self.mineList.append(ClassificationItem(title: "鱼类"))
+        self.mineList.append(ClassificationItem(title: "鱼类"))
+        self.mineList.append(ClassificationItem(title: "鱼类"))
         
         self.dishesList.append(DishesListItem(title: "猪大骨头"))
         self.dishesList.append(DishesListItem(title: "猪大骨头"))
@@ -123,6 +135,15 @@ extension ClassificationViewController {
         self.dishesList.append(DishesListItem(title: "猪大骨头"))
         self.dishesList.append(DishesListItem(title: "猪大骨头"))
         self.dishesList.append(DishesListItem(title: "猪大骨头"))
+        
+        
+        self.dishesListHeather.append(DishesListItemHeather(title: "猪"))
+        self.dishesListHeather.append(DishesListItemHeather(title: "牛"))
+        self.dishesListHeather.append(DishesListItemHeather(title: "羊"))
+        self.dishesListHeather.append(DishesListItemHeather(title: "羊"))
+        self.dishesListHeather.append(DishesListItemHeather(title: "羊"))
+        
+        
     }
 
 }
