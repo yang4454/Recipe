@@ -126,6 +126,8 @@
 		184967512511E4C500E4815F /* HomeViewVerticalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184967502511E4C500E4815F /* HomeViewVerticalCollectionViewCell.swift */; };
 		184967532511E50C00E4815F /* HomeViewHorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184967522511E50C00E4815F /* HomeViewHorizontalCollectionViewCell.swift */; };
 		184967552511E53F00E4815F /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184967542511E53F00E4815F /* HomeHeaderView.swift */; };
+		184967572511FD9000E4815F /* HomeDishesListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184967562511FD9000E4815F /* HomeDishesListCollectionViewCell.swift */; };
+		1849675925120F4700E4815F /* HomeThemeListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849675825120F4700E4815F /* HomeThemeListCollectionViewCell.swift */; };
 		C64C77EAF181896941F586D0 /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0279008270829480E23552A /* Pods_Recipe.framework */; };
 /* End PBXBuildFile section */
 
@@ -273,6 +275,8 @@
 		184967502511E4C500E4815F /* HomeViewVerticalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewVerticalCollectionViewCell.swift; sourceTree = "<group>"; };
 		184967522511E50C00E4815F /* HomeViewHorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
 		184967542511E53F00E4815F /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		184967562511FD9000E4815F /* HomeDishesListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDishesListCollectionViewCell.swift; sourceTree = "<group>"; };
+		1849675825120F4700E4815F /* HomeThemeListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeThemeListCollectionViewCell.swift; sourceTree = "<group>"; };
 		496ADE17DD7DE35B406AC658 /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		99027C91C8C7CFA7000B24CB /* Pods-Recipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.debug.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.debug.xcconfig"; sourceTree = "<group>"; };
 		F0279008270829480E23552A /* Pods_Recipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -770,6 +774,8 @@
 				184967502511E4C500E4815F /* HomeViewVerticalCollectionViewCell.swift */,
 				184967522511E50C00E4815F /* HomeViewHorizontalCollectionViewCell.swift */,
 				184967542511E53F00E4815F /* HomeHeaderView.swift */,
+				184967562511FD9000E4815F /* HomeDishesListCollectionViewCell.swift */,
+				1849675825120F4700E4815F /* HomeThemeListCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -988,6 +994,7 @@
 				18496683250F7C7400E4815F /* TableCornersCell.swift in Sources */,
 				184967342510563100E4815F /* HomeViewController.swift in Sources */,
 				1849667B250F7C7400E4815F /* NavigationController.swift in Sources */,
+				1849675925120F4700E4815F /* HomeThemeListCollectionViewCell.swift in Sources */,
 				184966EF250F7E0100E4815F /* UIApplicationExtensions.swift in Sources */,
 				184966E5250F7E0100E4815F /* UITextFieldExtensions.swift in Sources */,
 				184966F5250F7E0100E4815F /* CGFloatExtensions.swift in Sources */,
@@ -1055,6 +1062,7 @@
 				184966FE250F7E0100E4815F /* DictionaryExtensions.swift in Sources */,
 				18496707250F7E0100E4815F /* DateExtensions.swift in Sources */,
 				18496712250F7E0100E4815F /* PathManager.swift in Sources */,
+				184967572511FD9000E4815F /* HomeDishesListCollectionViewCell.swift in Sources */,
 				184967512511E4C500E4815F /* HomeViewVerticalCollectionViewCell.swift in Sources */,
 				184966DB250F7E0100E4815F /* MoyaResponse.swift in Sources */,
 				184966EE250F7E0100E4815F /* UILabelExtensions.swift in Sources */,

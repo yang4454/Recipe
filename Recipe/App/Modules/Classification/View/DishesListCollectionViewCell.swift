@@ -26,7 +26,7 @@ class DishesListCollectionViewCell: CollectionViewCell {
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.center.equalTo(contentView)
-            make.size.equalTo(CGSize(width: (SCREEN_WIDTH - 2 * kHomeImagePad-80) / 3, height: 50))
+            make.size.equalTo(CGSize(width: (SCREEN_WIDTH - 2 * kClassificationImagePad-80) / 3, height: 50))
         }
         
     }
@@ -36,12 +36,4 @@ class DishesListCollectionViewCell: CollectionViewCell {
         return lb
     }()
     
-    class func initItemWithIdentifier(_collectionview:UICollectionView,Identifier:String , index:IndexPath) -> CollectionViewCell {
-        //复用
-        let cell:CollectionViewCell = _collectionview.dequeueReusableCell(withReuseIdentifier: Identifier, for: index) as! CollectionViewCell
-        //设置背景颜色
-       cell.backgroundColor = UIColor.orange
-       return cell
-            
-    }
 }

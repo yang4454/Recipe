@@ -7,10 +7,9 @@
 //
 
 import UIKit
-let kHomeImagePad: CGFloat = 2
-let kHomeImageWidth: CGFloat = (SCREEN_WIDTH - 2 * kHomeImagePad-80) / 3
-let kHomeImageHeight: CGFloat = 50
-
+let kClassificationImagePad: CGFloat = 2
+let kClassificationImageWidth: CGFloat = (SCREEN_WIDTH - 2 * kClassificationImagePad-80) / 3
+let kClassificationImageHeight: CGFloat = 50
 
 
 //分类
@@ -49,15 +48,13 @@ class ClassificationViewController: ViewController {
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         
-        layout.headerReferenceSize = CGSize(width: SCREEN_WIDTH-80, height: kHomeImageHeight)
-        layout.itemSize = CGSize(width: kHomeImageWidth, height: kHomeImageHeight)
-        layout.minimumInteritemSpacing = kHomeImagePad
-        layout.minimumLineSpacing = kHomeImagePad
+        layout.headerReferenceSize = CGSize(width: SCREEN_WIDTH-80, height: kClassificationImageHeight)
+        layout.itemSize = CGSize(width: kClassificationImageWidth, height: kClassificationImageHeight)
+        layout.minimumInteritemSpacing = kClassificationImagePad
+        layout.minimumLineSpacing = kClassificationImagePad
         
         let iv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         iv.backgroundColor = UIColor.clear
-//        iv.alwaysBounceHorizontal = true
-//        iv.alwaysBounceVertical = true
         iv.showsHorizontalScrollIndicator = false
         iv.showsVerticalScrollIndicator = false
         iv.register(DishesListCollectionViewCell.self, forCellWithReuseIdentifier: DishesListCollectionViewCell.cellIdentifier)

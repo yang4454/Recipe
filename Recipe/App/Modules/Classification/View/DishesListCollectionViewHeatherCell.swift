@@ -38,12 +38,4 @@ class DishesListCollectionViewHeatherCell: CollectionViewCell {
         return lb
     }()
     
-    class func initItemWithIdentifier(_collectionview:UICollectionView,Identifier:String , index:IndexPath) -> CollectionViewCell {
-        //复用
-        let cell:CollectionViewCell = _collectionview.dequeueReusableCell(withReuseIdentifier: Identifier, for: index) as! CollectionViewCell
-        //设置背景颜色
-       cell.backgroundColor = UIColor.orange
-       return cell
-            
-    }
 }

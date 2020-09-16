@@ -5,59 +5,129 @@
 //  Created by apple on 2020/9/15.
 //  Copyright © 2020 apple. All rights reserved.
 //
+let kHomeImagePad: CGFloat = 2
+let kHomeImageWidth: CGFloat = (SCREEN_WIDTH - 2 * kHomeImagePad-80) / 3
+let kHomeImageHeight: CGFloat = 50
+
+
 
 import UIKit
-import FSPagerView
 
 /// 首页
 class HomeViewController: ViewController {
 
-    private var lists: [String] = ["screen_1", "screen_2","screen_3"]
+    private var mineList = [ClassificationItem]()
+    private var dishesList = [DishesListItem]()
+    
+    private var dishesListHeather = [DishesListItemHeather]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navView.isHidden = true
         view.backgroundColor = UIColor.white
-        view.addSubview(pagerView)
         // Do any additional setup after loading the view.
+        
+        view.addSubview(headerBackgroundImageView)
+        headerBackgroundImageView.snp.remakeConstraints { (make) in
+            make.top.equalTo(view)
+            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: 400))
+        }
+        
+        view.addSubview(collectionView)
+        collectionView.snp.remakeConstraints { (make) in
+            make.edges.equalTo(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        }
+        
+        requestMineDatas()
     }
-    
-    /// 轮播
-    lazy var pagerView: FSPagerView = {
-        let pagerView = FSPagerView(frame: CGRect(x: 0, y: 0, w: SCREEN_WIDTH, h: 300))
-        pagerView.automaticSlidingInterval = 3
-        pagerView.isInfinite = true // 无限翻页
-        pagerView.dataSource = self
-        pagerView.delegate = self
-        pagerView.transformer = FSPagerViewTransformer(type: .linear) //样式
-        let transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        pagerView.itemSize = pagerView.frame.size.applying(transform)
-        pagerView.decelerationDistance = 1
-        pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
-        return pagerView
+    lazy var headerBackgroundImageView: UIImageView = {//创建ImageView
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.image = UIImage(named: "home_banner_background")
+        return imageView
     }()
+    
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        
+        layout.headerReferenceSize = CGSize(width: SCREEN_WIDTH-80, height: 1000)
+        layout.itemSize = CGSize(width: kHomeImageWidth, height: kHomeImageHeight)
+        layout.minimumInteritemSpacing = kHomeImagePad
+        layout.minimumLineSpacing = kHomeImagePad
+        
+        let iv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        iv.backgroundColor = UIColor.clear
+        iv.showsHorizontalScrollIndicator = false
+        iv.showsVerticalScrollIndicator = false
+        iv.register(DishesListCollectionViewCell.self, forCellWithReuseIdentifier: DishesListCollectionViewCell.cellIdentifier)
+        iv.register(HomeHeaderView.self, forCellWithReuseIdentifier: HomeHeaderView.cellIdentifier)
+        iv.dataSource = self
+        iv.delegate = self
+
+        return iv
+        
+        
+    }()
+    
 
 }
-extension HomeViewController: FSPagerViewDataSource, FSPagerViewDelegate {
-    func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return lists.count
+//MARK: - CollectionView
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
-    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "FSPagerViewCell", at: index)
-        cell.imageView?.image = UIImage(named: lists[index])
-        
-//        //自定义图片
-//        let vi = UIView(frame: self.view.frame)
-//        vi.backgroundColor = UIColor.red
-//        cell.imageView?.image = UIView.getImageFromView(view: vi)
-        
-        cell.contentView.layer.shadowColor = UIColor.clear.cgColor
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       return dishesList.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishesListCollectionViewCell.cellIdentifier, for: indexPath) as! DishesListCollectionViewCell
+        cell.model = dishesList[indexPath.row]
         return cell
     }
     
-    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeHeaderView.cellIdentifier, for: indexPath) as! HomeHeaderView
+        cell.backgroundColor = UIColor.clear
+        return cell
         
+
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+    }
+}
+
+
+extension HomeViewController {
+    private func requestMineDatas() {
+        self.mineList.append(ClassificationItem(title: "五谷杂粮"))
+        self.mineList.append(ClassificationItem(title: "猪肉"))
+        self.mineList.append(ClassificationItem(title: "鱼类"))
+        self.mineList.append(ClassificationItem(title: "鱼类"))
+        self.mineList.append(ClassificationItem(title: "鱼类"))
+        
+        self.dishesList.append(DishesListItem(title: "猪大骨头"))
+        self.dishesList.append(DishesListItem(title: "猪大骨头"))
+        self.dishesList.append(DishesListItem(title: "猪大骨头"))
+        self.dishesList.append(DishesListItem(title: "猪大骨头"))
+        self.dishesList.append(DishesListItem(title: "猪大骨头"))
+        self.dishesList.append(DishesListItem(title: "猪大骨头"))
+        self.dishesList.append(DishesListItem(title: "猪大骨头"))
+        self.dishesList.append(DishesListItem(title: "猪大骨头"))
+        
+        
+        self.dishesListHeather.append(DishesListItemHeather(title: "猪"))
+        self.dishesListHeather.append(DishesListItemHeather(title: "牛"))
+        self.dishesListHeather.append(DishesListItemHeather(title: "羊"))
+        self.dishesListHeather.append(DishesListItemHeather(title: "羊"))
+        self.dishesListHeather.append(DishesListItemHeather(title: "羊"))
+        
+        
+    }
+
 }

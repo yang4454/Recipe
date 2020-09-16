@@ -1,16 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "icon_主页.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tab_home_select@2x.png",
+      "filename" : "icon_主页@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tab_home_select@3x.png",
+      "filename" : "icon_主页@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

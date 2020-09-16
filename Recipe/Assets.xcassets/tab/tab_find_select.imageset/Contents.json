@@ -1,16 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "icon_测测乐.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tab_find_select@2x.png",
+      "filename" : "icon_测测乐@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tab_find_select@3x.png",
+      "filename" : "icon_测测乐@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

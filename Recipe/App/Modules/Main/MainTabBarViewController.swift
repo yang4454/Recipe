@@ -86,8 +86,8 @@ class RTBasicContentView: ESTabBarItemContentView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        textColor = UIColor(hexString: "0x9A9A9A")
-        highlightTextColor = Configs.Color.mainColor
+        textColor = UIColor(hexString: "0x333333")
+        highlightTextColor = UIColor(hexString: "0x333333")
         renderingMode = .alwaysOriginal
     }
     
