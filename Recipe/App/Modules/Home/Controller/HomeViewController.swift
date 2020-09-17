@@ -27,24 +27,16 @@ class HomeViewController: ViewController {
         view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view.
         
-        view.addSubview(headerBackgroundImageView)
-        headerBackgroundImageView.snp.remakeConstraints { (make) in
-            make.top.equalTo(view)
-            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: 400))
-        }
+        
         
         view.addSubview(collectionView)
         collectionView.snp.remakeConstraints { (make) in
-            make.edges.equalTo(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+            make.edges.equalTo(UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0))
         }
         
         requestMineDatas()
     }
-    lazy var headerBackgroundImageView: UIImageView = {//创建ImageView
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        imageView.image = UIImage(named: "home_banner_background")
-        return imageView
-    }()
+    
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

@@ -30,7 +30,38 @@ class HomeHeaderView: CollectionViewCell {
     
     override func configUI() {
         contentView.backgroundColor = UIColor.clear
+        contentView.addSubview(headerBackgroundImageView)
+        headerBackgroundImageView.snp.remakeConstraints { (make) in
+            make.top.equalTo(contentView)
+            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: 300))
+        }
+        contentView.addSubview(titleLabel)
+        titleLabel.snp.remakeConstraints { (make) in
+            make.top.equalTo(contentView).offset(20)
+            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: 40))
+            make.left.equalTo(20)
+        }
+        
+        contentView.addSubview(describeLabel)
+        describeLabel.snp.remakeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.bottom)
+            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: 30))
+            make.left.equalTo(20)
+        }
+        
+        contentView.addSubview(searchBtn)
+        searchBtn.snp.remakeConstraints { (make) in
+            make.top.equalTo(contentView).offset(20)
+            make.size.equalTo(CGSize(width: 60, height: 60))
+            make.right.equalTo(-20)
+        }
+        
         contentView.addSubview(pagerView)
+        pagerView.snp.remakeConstraints { (make) in
+            make.top.equalTo(describeLabel.snp.bottom)
+            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: 300))
+        }
+        
         contentView.addSubview(collectionViewMenu)
         collectionViewMenu.snp.makeConstraints { (make) in
             make.top.equalTo(pagerView.snp.bottom)
@@ -38,18 +69,76 @@ class HomeHeaderView: CollectionViewCell {
             make.width.equalTo(kScreenW-40)
             make.height.equalTo(kHomeHeaderDishesListImageHeight*2+4)
         }
+        
+        contentView.addSubview(titleThemeLabel)
+        titleThemeLabel.snp.remakeConstraints { (make) in
+            make.top.equalTo(collectionViewMenu.snp.bottom)
+            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: 30))
+            make.left.equalTo(20)
+        }
+        
+        contentView.addSubview(descriThemebeLabel)
+        descriThemebeLabel.snp.remakeConstraints { (make) in
+            make.top.equalTo(titleThemeLabel.snp.bottom)
+            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: 20))
+            make.left.equalTo(20)
+        }
+        
+        
         contentView.addSubview(collectionViewTheme)
         collectionViewTheme.snp.makeConstraints { (make) in
-            make.top.equalTo(collectionViewMenu.snp.bottom)
-            make.left.equalTo(kHomeHeaderDishesListImagePad*5/2)
-            make.width.equalTo(kScreenW-kHomeHeaderDishesListImagePad*5)
+            make.top.equalTo(descriThemebeLabel.snp.bottom)
+            make.left.equalTo(20)
+            make.width.equalTo(kScreenW-40)
             make.height.equalTo(kHomeHeaderDishesListImageHeight*2+50)
         }
+        
+        contentView.addSubview(titleGoodDishesLabel)
+        titleGoodDishesLabel.snp.remakeConstraints { (make) in
+            make.top.equalTo(collectionViewTheme.snp.bottom)
+            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: 30))
+            make.left.equalTo(20)
+        }
+
+        contentView.addSubview(descriGoodDishesLabel)
+        descriGoodDishesLabel.snp.remakeConstraints { (make) in
+            make.top.equalTo(titleGoodDishesLabel.snp.bottom)
+            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: 20))
+            make.left.equalTo(20)
+        }
+        
         
         requestMineDatas()
         
     }
     
+    lazy var headerBackgroundImageView: UIImageView = {//创建ImageView
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.image = UIImage(named: "home_banner_background")
+        return imageView
+    }()
+    
+    lazy var titleLabel: UILabel = {
+        let lb = UILabel(font: 22.mediumFont, color: UIColor.kColor333, alignment: .left)
+        lb.text = "朱丽叶菜谱大全"
+        return lb
+    }()
+    
+    lazy var describeLabel: UILabel = {
+        let lb = UILabel(font: 12.mediumFont, color: UIColor.kColor333, alignment: .left)
+        lb.text = "小白学做菜必备的烹饪助手"
+        return lb
+    }()
+    
+    lazy var searchBtn: UIButton = {
+        let bc = UIButton(bcImage: "home_search", target: self, action: #selector(self.searchBtnClick))
+//        bc.setBackgroundImage("topic_collectionBtn_selected".image, for: .selected)
+        return bc
+    }()
+    
+    @objc func searchBtnClick() {
+        
+    }
     
     /// 轮播
     lazy var pagerView: FSPagerView = {
@@ -85,6 +174,19 @@ class HomeHeaderView: CollectionViewCell {
         iv.delegate = self
         return iv
     }()
+    
+    lazy var titleThemeLabel: UILabel = {
+        let lb = UILabel(font: 18.mediumFont, color: UIColor.kColor333, alignment: .left)
+        lb.text = "主题菜谱"
+        return lb
+    }()
+    
+    lazy var descriThemebeLabel: UILabel = {
+        let lb = UILabel(font: 12.mediumFont, color: UIColor.kColor333, alignment: .left)
+        lb.text = "总有适合你的菜谱~"
+        return lb
+    }()
+    
     //主题
     lazy var collectionViewTheme: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -102,6 +204,18 @@ class HomeHeaderView: CollectionViewCell {
         iv.dataSource = self
         iv.delegate = self
         return iv
+    }()
+    
+    lazy var titleGoodDishesLabel: UILabel = {
+        let lb = UILabel(font: 18.mediumFont, color: UIColor.kColor333, alignment: .left)
+        lb.text = "精品好菜"
+        return lb
+    }()
+    
+    lazy var descriGoodDishesLabel: UILabel = {
+        let lb = UILabel(font: 12.mediumFont, color: UIColor.kColor333, alignment: .left)
+        lb.text = "只为您推荐最受欢迎的好菜"
+        return lb
     }()
 
 }
