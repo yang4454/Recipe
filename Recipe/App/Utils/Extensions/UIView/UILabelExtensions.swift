@@ -28,6 +28,18 @@ extension UILabel {
         isUserInteractionEnabled = true
         numberOfLines = 1
     }
+    
+    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, color: UIColor, font: UIFont, alignment: NSTextAlignment) {
+        self.init(frame: CGRect(x: x, y: y, width: w, height: h))
+        self.font = font
+        textColor = color
+        backgroundColor = UIColor.clear
+        clipsToBounds = true
+        textAlignment = alignment
+        isUserInteractionEnabled = true
+        numberOfLines = 1
+    }
+    
 
     public func getEstimatedSize(_ width: CGFloat = CGFloat.greatestFiniteMagnitude, height: CGFloat = CGFloat.greatestFiniteMagnitude) -> CGSize {
         return sizeThatFits(CGSize(width: width, height: height))

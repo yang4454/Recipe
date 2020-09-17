@@ -1,16 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "icon_客服(3).png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "mine_cell_icon_feedback@2x.png",
+      "filename" : "icon_客服@2x(3).png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "mine_cell_icon_feedback@3x.png",
+      "filename" : "icon_客服@3x(3).png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -217,6 +217,9 @@ class HomeHeaderView: CollectionViewCell {
         lb.text = "只为您推荐最受欢迎的好菜"
         return lb
     }()
+    
+    
+    
 
 }
 extension HomeHeaderView {
@@ -252,15 +255,15 @@ extension HomeHeaderView: FSPagerViewDataSource, FSPagerViewDelegate {
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "FSPagerViewCell", at: index)
-        cell.imageView?.image = UIImage(named: lists[index])
-        
-//        //自定义图片
-//        let vi = UIView(frame: self.view.frame)
-//        vi.backgroundColor = UIColor.red
-//        cell.imageView?.image = UIView.getImageFromView(view: vi)
-        
+        //自定义图片
+        let bannerView = bannerList(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH*0.9, height: 300*0.9))
+        bannerView.iconImageView.image = UIImage(named: lists[index])
+//        cell.imageView?.image = UIView.getImageFromView(view: bannerView)
+        cell.backgroundView = bannerView
         cell.contentView.layer.shadowColor = UIColor.clear.cgColor
         return cell
+        
+        
     }
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
@@ -301,6 +304,108 @@ extension HomeHeaderView: UICollectionViewDataSource, UICollectionViewDelegateFl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+    }
+}
+class bannerList: BaseView {
+    override func configUI() {
+        setCornerRadius(radius: 10)
+        backgroundColor = UIColor.clear
+        
+        addSubview(iconImageView)
+        addSubview(contentBackgroundView)
+        
+        contentBackgroundView.addSubview(titleBannerLabel)
+        titleBannerLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self)
+            make.top.equalTo(contentBackgroundView.snp.top).offset(3)
+            make.left.equalTo(10)
+        }
+        
+        contentBackgroundView.addSubview(titleDescribeBannerLabel)
+        titleDescribeBannerLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self)
+            make.top.equalTo(titleBannerLabel.snp.bottom).offset(3)
+            make.left.equalTo(10)
+        }
+
+        contentBackgroundView.addSubview(lineBackgroundView)
+        lineBackgroundView.snp.makeConstraints { (make) in
+            make.top.equalTo(titleDescribeBannerLabel.snp.bottom).offset(3)
+            make.left.equalTo(10)
+            make.right.equalTo(-10)
+            make.height.equalTo(2)
+        }
+        
+        
+        
+        contentBackgroundView.addSubview(seeBtn)
+        seeBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(lineBackgroundView.snp.bottom).offset(3)
+            make.left.equalTo(10)
+        }
+        
+        
+        contentBackgroundView.addSubview(starBtn)
+        starBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(lineBackgroundView.snp.bottom).offset(3)
+            make.left.equalTo(seeBtn.snp.right)
+        }
+        
+    }
+    
+    
+    lazy var iconImageView: UIImageView = {//创建ImageView
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH*0.9, height: 300*0.9))
+        return imageView
+    }()
+    
+    
+    lazy var contentBackgroundView: UIView = {
+        let iv = UIView(frame: CGRect(x: (SCREEN_WIDTH*0.9-300)/2, y: (300*0.9-115), width: 300, height: 100))
+        iv.backgroundColor = UIColor.white
+        iv.setCornerRadius(radius: 10)
+        return iv
+    }()
+    
+    lazy var titleBannerLabel: UILabel = {
+        let lb = UILabel(x: 0, y: 0, w: 200, h: 40, color: UIColor.kColor333, font: 22.mediumFont, alignment: .left)
+        lb.text = "派对水果奶油沙拉"
+        return lb
+    }()
+    
+    lazy var titleDescribeBannerLabel: UILabel = {
+        let lb = UILabel(x: 0, y: 0, w: 200, h: 40, color: UIColor.kColor333, font: 12.mediumFont, alignment: .left)
+        lb.text = "每个人都可以做到的健康西餐"
+        return lb
+    }()
+    
+    lazy var lineBackgroundView: UIView = {
+        let iv = UIView()
+        iv.backgroundColor = UIColor(hexString: "#F3F3F3")
+        return iv
+    }()
+    
+    
+    lazy var seeBtn: UIButton = {
+        let bc = UIButton(title: "0", font: 14.mediumFont, fontColor: UIColor.kColor333, imageName: "home_see", backColor: nil, target: self, action: #selector(self.seeBtnClick))
+        
+        return bc
+    }()
+    
+    
+    @objc func seeBtnClick() {
+        
+    }
+    
+    
+    lazy var starBtn: UIButton = {
+
+        let bc = UIButton(title: "0", font: 14.mediumFont, fontColor: UIColor.kColor333, imageName: "home_UnStar", backColor: nil, target: self, action: #selector(self.starBtnClick))
+        return bc
+    }()
+    
+    @objc func starBtnClick() {
         
     }
 }

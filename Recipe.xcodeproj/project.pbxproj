@@ -123,11 +123,10 @@
 		1849674825108D8300E4815F /* ClassificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849674725108D8300E4815F /* ClassificationTableViewCell.swift */; };
 		1849674C2510BD5A00E4815F /* DishesListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849674B2510BD5A00E4815F /* DishesListCollectionViewCell.swift */; };
 		1849674F2510D5FB00E4815F /* DishesListCollectionViewHeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849674E2510D5FB00E4815F /* DishesListCollectionViewHeatherCell.swift */; };
-		184967512511E4C500E4815F /* HomeViewVerticalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184967502511E4C500E4815F /* HomeViewVerticalCollectionViewCell.swift */; };
-		184967532511E50C00E4815F /* HomeViewHorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184967522511E50C00E4815F /* HomeViewHorizontalCollectionViewCell.swift */; };
 		184967552511E53F00E4815F /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184967542511E53F00E4815F /* HomeHeaderView.swift */; };
 		184967572511FD9000E4815F /* HomeDishesListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184967562511FD9000E4815F /* HomeDishesListCollectionViewCell.swift */; };
 		1849675925120F4700E4815F /* HomeThemeListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849675825120F4700E4815F /* HomeThemeListCollectionViewCell.swift */; };
+		1849675B2512F97600E4815F /* HomeGoodDishesListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849675A2512F97600E4815F /* HomeGoodDishesListCollectionViewCell.swift */; };
 		C64C77EAF181896941F586D0 /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0279008270829480E23552A /* Pods_Recipe.framework */; };
 /* End PBXBuildFile section */
 
@@ -272,11 +271,10 @@
 		1849674725108D8300E4815F /* ClassificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationTableViewCell.swift; sourceTree = "<group>"; };
 		1849674B2510BD5A00E4815F /* DishesListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesListCollectionViewCell.swift; sourceTree = "<group>"; };
 		1849674E2510D5FB00E4815F /* DishesListCollectionViewHeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesListCollectionViewHeatherCell.swift; sourceTree = "<group>"; };
-		184967502511E4C500E4815F /* HomeViewVerticalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewVerticalCollectionViewCell.swift; sourceTree = "<group>"; };
-		184967522511E50C00E4815F /* HomeViewHorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
 		184967542511E53F00E4815F /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		184967562511FD9000E4815F /* HomeDishesListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDishesListCollectionViewCell.swift; sourceTree = "<group>"; };
 		1849675825120F4700E4815F /* HomeThemeListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeThemeListCollectionViewCell.swift; sourceTree = "<group>"; };
+		1849675A2512F97600E4815F /* HomeGoodDishesListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoodDishesListCollectionViewCell.swift; sourceTree = "<group>"; };
 		496ADE17DD7DE35B406AC658 /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		99027C91C8C7CFA7000B24CB /* Pods-Recipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.debug.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.debug.xcconfig"; sourceTree = "<group>"; };
 		F0279008270829480E23552A /* Pods_Recipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -771,10 +769,9 @@
 		1849673C2510572C00E4815F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				184967502511E4C500E4815F /* HomeViewVerticalCollectionViewCell.swift */,
-				184967522511E50C00E4815F /* HomeViewHorizontalCollectionViewCell.swift */,
 				184967542511E53F00E4815F /* HomeHeaderView.swift */,
 				184967562511FD9000E4815F /* HomeDishesListCollectionViewCell.swift */,
+				1849675A2512F97600E4815F /* HomeGoodDishesListCollectionViewCell.swift */,
 				1849675825120F4700E4815F /* HomeThemeListCollectionViewCell.swift */,
 			);
 			path = View;
@@ -1012,6 +1009,7 @@
 				18496717250F7E0100E4815F /* FileManagerExtension.swift in Sources */,
 				184966EA250F7E0100E4815F /* UIViewExtensions.swift in Sources */,
 				184966E0250F7E0100E4815F /* TextLinePositionModifier.swift in Sources */,
+				1849675B2512F97600E4815F /* HomeGoodDishesListCollectionViewCell.swift in Sources */,
 				18496744251059E700E4815F /* MineHeaderItemCell.swift in Sources */,
 				18496686250F7C7400E4815F /* TableViewHeaderFooterView.swift in Sources */,
 				1849670C250F7E0100E4815F /* BlockPan.swift in Sources */,
@@ -1063,14 +1061,12 @@
 				18496707250F7E0100E4815F /* DateExtensions.swift in Sources */,
 				18496712250F7E0100E4815F /* PathManager.swift in Sources */,
 				184967572511FD9000E4815F /* HomeDishesListCollectionViewCell.swift in Sources */,
-				184967512511E4C500E4815F /* HomeViewVerticalCollectionViewCell.swift in Sources */,
 				184966DB250F7E0100E4815F /* MoyaResponse.swift in Sources */,
 				184966EE250F7E0100E4815F /* UILabelExtensions.swift in Sources */,
 				1849674625105A0900E4815F /* MineHeaderView.swift in Sources */,
 				184966F8250F7E0100E4815F /* String+Extensions.swift in Sources */,
 				184966EC250F7E0100E4815F /* UIBarButtonItem+Extension.swift in Sources */,
 				1849674C2510BD5A00E4815F /* DishesListCollectionViewCell.swift in Sources */,
-				184967532511E50C00E4815F /* HomeViewHorizontalCollectionViewCell.swift in Sources */,
 				184966E2250F7E0100E4815F /* MYCollectionViewFlowLayout.swift in Sources */,
 				184966ED250F7E0100E4815F /* UIWindowExtensions.swift in Sources */,
 				184966FF250F7E0100E4815F /* StringExtensions.swift in Sources */,

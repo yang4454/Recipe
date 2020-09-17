@@ -7,7 +7,7 @@
 //
 
 import UIKit
-private let kMineHeaderViewItemSize = CGSize(width: 60, height: 100)
+private let kMineHeaderViewItemSize = CGSize(width: 100, height: 80)
 
 class MineHeaderView: BaseView {
 
@@ -19,19 +19,18 @@ class MineHeaderView: BaseView {
     
     override func configUI() {
         backgroundColor = UIColor.kColorf4
-        imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: 230)
+        imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: 200)
         addSubview(imageView)
         imageViewFrame = imageView.frame
         
         addSubview(collectionView)
-        collectionView.frame = CGRect(x: 0, y: frame.height - kMineHeaderViewItemSize.height - 10, width: kScreenW, height: kMineHeaderViewItemSize.height)
-        collectionView.setRoundCorners(corners: [.topLeft, .topRight], with: 6)
+        collectionView.frame = CGRect(x: 20, y: frame.height - kMineHeaderViewItemSize.height - 10, width: kScreenW-40, height: kMineHeaderViewItemSize.height)
+//        collectionView.setRoundCorners(corners: [.topLeft, .topRight], with: 6)
+        collectionView.setRoundCorners(corners: .allCorners, with: 6)
         
         DispatchQueue.global().async {
-            self.mineList.append(MineHeaderItem(title: "我的下载", icon: "mine_icon_down"))
-            self.mineList.append(MineHeaderItem(title: "我的收藏", icon: "mine_icon_like"))
-            self.mineList.append(MineHeaderItem(title: "浏览记录", icon: "mine_icon_history"))
-//            self.mineList.append(MineHeaderItem(title: "本地图片", icon: "mine_icon_local"))
+            self.mineList.append(MineHeaderItem(title: "我的收藏", icon: "mine_Star"))
+            self.mineList.append(MineHeaderItem(title: "浏览记录", icon: "mine_see"))
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -108,15 +107,16 @@ class MineHeaderItemsCell: CollectionViewCell {
     override func configUI() {
         contentView.addSubview(iconView)
         iconView.snp.makeConstraints { (make) in
-            make.top.equalTo(22)
-            make.centerX.equalTo(contentView.snp.centerX)
-            make.size.equalTo(45.size)
+            make.left.equalTo(0)
+            make.centerY.equalTo(contentView.snp.centerY)
+            make.size.equalTo(20.size)
         }
         
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(iconView.snp.bottom).offset(5)
-            make.left.right.equalTo(0)
+            make.centerY.equalTo(contentView.snp.centerY)
+            make.left.equalTo(iconView.snp.right)
+            make.right.equalTo(0)
             make.height.equalTo(18)
         }
     }
@@ -127,7 +127,7 @@ class MineHeaderItemsCell: CollectionViewCell {
     }()
     
     lazy var titleLabel: UILabel = {
-        let lb = UILabel(font: 12.mediumFont, color: UIColor.kColor666, alignment: .center)
+        let lb = UILabel(font: 12.mediumFont, color: UIColor.kColor666, alignment: .left)
         return lb
     }()
 }

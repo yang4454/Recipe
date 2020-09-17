@@ -5,9 +5,9 @@
 //  Created by apple on 2020/9/15.
 //  Copyright © 2020 apple. All rights reserved.
 //
-let kHomeImagePad: CGFloat = 2
-let kHomeImageWidth: CGFloat = (SCREEN_WIDTH - 2 * kHomeImagePad-80) / 3
-let kHomeImageHeight: CGFloat = 50
+let kHomeImagePad: CGFloat = 10
+let kHomeImageWidth: CGFloat = (SCREEN_WIDTH - 40-kHomeImagePad*2) / 2
+let kHomeImageHeight: CGFloat = kHomeImageWidth
 
 
 
@@ -16,22 +16,20 @@ import UIKit
 /// 首页
 class HomeViewController: ViewController {
 
-    private var mineList = [ClassificationItem]()
-    private var dishesList = [DishesListItem]()
+    private var dishesList = [HomeGoodDishesListItem]()
     
-    private var dishesListHeather = [DishesListItemHeather]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navView.isHidden = true
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor(hexString: "#F6F7F9")
         // Do any additional setup after loading the view.
         
         
         
         view.addSubview(collectionView)
         collectionView.snp.remakeConstraints { (make) in
-            make.edges.equalTo(UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0))
+            make.edges.equalTo(UIEdgeInsets(top: -kStatusBarHeight, left: 0, bottom: 0, right: 0))
         }
         
         requestMineDatas()
@@ -41,16 +39,17 @@ class HomeViewController: ViewController {
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         
-        layout.headerReferenceSize = CGSize(width: SCREEN_WIDTH-80, height: 1000)
+        layout.headerReferenceSize = CGSize(width: SCREEN_WIDTH-80, height: 900)
         layout.itemSize = CGSize(width: kHomeImageWidth, height: kHomeImageHeight)
         layout.minimumInteritemSpacing = kHomeImagePad
         layout.minimumLineSpacing = kHomeImagePad
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
         let iv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         iv.backgroundColor = UIColor.clear
         iv.showsHorizontalScrollIndicator = false
         iv.showsVerticalScrollIndicator = false
-        iv.register(DishesListCollectionViewCell.self, forCellWithReuseIdentifier: DishesListCollectionViewCell.cellIdentifier)
+        iv.register(HomeGoodDishesListCollectionViewCell.self, forCellWithReuseIdentifier: HomeGoodDishesListCollectionViewCell.cellIdentifier)
         iv.register(HomeHeaderView.self, forCellWithReuseIdentifier: HomeHeaderView.cellIdentifier)
         iv.dataSource = self
         iv.delegate = self
@@ -75,7 +74,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishesListCollectionViewCell.cellIdentifier, for: indexPath) as! DishesListCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoodDishesListCollectionViewCell.cellIdentifier, for: indexPath) as! HomeGoodDishesListCollectionViewCell
         cell.model = dishesList[indexPath.row]
         return cell
     }
@@ -97,29 +96,16 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 extension HomeViewController {
     private func requestMineDatas() {
-        self.mineList.append(ClassificationItem(title: "五谷杂粮"))
-        self.mineList.append(ClassificationItem(title: "猪肉"))
-        self.mineList.append(ClassificationItem(title: "鱼类"))
-        self.mineList.append(ClassificationItem(title: "鱼类"))
-        self.mineList.append(ClassificationItem(title: "鱼类"))
-        
-        self.dishesList.append(DishesListItem(title: "猪大骨头"))
-        self.dishesList.append(DishesListItem(title: "猪大骨头"))
-        self.dishesList.append(DishesListItem(title: "猪大骨头"))
-        self.dishesList.append(DishesListItem(title: "猪大骨头"))
-        self.dishesList.append(DishesListItem(title: "猪大骨头"))
-        self.dishesList.append(DishesListItem(title: "猪大骨头"))
-        self.dishesList.append(DishesListItem(title: "猪大骨头"))
-        self.dishesList.append(DishesListItem(title: "猪大骨头"))
-        
-        
-        self.dishesListHeather.append(DishesListItemHeather(title: "猪"))
-        self.dishesListHeather.append(DishesListItemHeather(title: "牛"))
-        self.dishesListHeather.append(DishesListItemHeather(title: "羊"))
-        self.dishesListHeather.append(DishesListItemHeather(title: "羊"))
-        self.dishesListHeather.append(DishesListItemHeather(title: "羊"))
-        
-        
+        self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
+        self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
+        self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
+        self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
+        self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
+        self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
+        self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
+        self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
+        self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
+        self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
     }
 
 }

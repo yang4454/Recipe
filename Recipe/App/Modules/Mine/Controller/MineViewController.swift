@@ -36,7 +36,7 @@ class MineViewController: PlainTableViewController {
     }
     
     lazy var headerView: MineHeaderView = {
-        let headerView = MineHeaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 280 + ez.screenStatusBarHeight))
+        let headerView = MineHeaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 230 + ez.screenStatusBarHeight))
         return headerView
     }()
 }
