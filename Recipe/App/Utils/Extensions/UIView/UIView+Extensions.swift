@@ -19,6 +19,8 @@ extension UIView {
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         layer.mask = mask
+        
+        
     }
     
     //设置部分圆角

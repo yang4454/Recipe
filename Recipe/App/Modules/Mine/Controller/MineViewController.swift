@@ -39,6 +39,12 @@ class MineViewController: PlainTableViewController {
         let headerView = MineHeaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 230 + ez.screenStatusBarHeight))
         return headerView
     }()
+    
+    lazy var contentHeaderBackgroundView: UIView = {
+        let iv = UIView()
+        iv.backgroundColor = UIColor.clear
+        return iv
+    }()
 }
 
 extension MineViewController {
@@ -93,11 +99,10 @@ extension MineViewController {
                 }
                 
                 self.mineList.append(cacheItem)
-                self.mineList.append(MineHeaderItem(title: "意见反馈", icon: "mine_cell_icon_feedback"))
-                self.mineList.append(MineHeaderItem(title: "应用评分", icon: "min_cell_icon_user"))
+                self.mineList.append(MineHeaderItem(title: "反馈问题", icon: "mine_cell_icon_feedback"))
+                self.mineList.append(MineHeaderItem(title: "去评分", icon: "min_cell_icon_user"))
                 self.mineList.append(MineHeaderItem(title: "用户协议", icon: "min_cell_icon_user"))
                 self.mineList.append(MineHeaderItem(title: "隐私政策", icon: "mine_cell_icon_ptorocl"))
-                self.mineList.append(MineHeaderItem(title: "版本更新", icon: "mine_cell_icon_me"))
                 self.mineList.append(MineHeaderItem(title: "关于我们", icon: "mine_cell_icon_me"))
                 
                 DispatchQueue.main.async {
@@ -110,6 +115,15 @@ extension MineViewController {
 
 // MARK: - UITableView
 extension MineViewController {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return contentHeaderBackgroundView
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mineList.count
     }
@@ -117,9 +131,16 @@ extension MineViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MineHeaderItemCell.cellIdentifier, for: indexPath) as! MineHeaderItemCell
         cell.model = mineList[indexPath.row]
+        if indexPath.row == 0 {
+//            cell.isFirs = true
+            cell.contentBackgroundView.setRoundCorners(corners: [.topLeft ,.topRight], with: 6)
+        }
+        if indexPath.row ==  mineList.count - 1 {
+            cell.contentBackgroundView.setRoundCorners(corners: [.bottomLeft ,.bottomRight], with: 6)
+        }
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = mineList[indexPath.row]
         switch model.title {
