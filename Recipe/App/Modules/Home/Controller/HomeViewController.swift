@@ -81,6 +81,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeHeaderView.cellIdentifier, for: indexPath) as! HomeHeaderView
+        cell.delegate = self
         cell.backgroundColor = UIColor.clear
         return cell
         
@@ -108,4 +109,10 @@ extension HomeViewController {
         self.dishesList.append(HomeGoodDishesListItem(title: "柠檬咖喱炒饭", imageName: "home_banner", seeNumber: "100", starNumber: "1000", isStar: true))
     }
 
+}
+// MARK: - HomeHeaderViewDelegate
+extension HomeViewController: HomeHeaderViewDelegate {
+    func toSearchViewController(){
+        self.pushVC(SearchViewController())
+    }
 }

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1804EC382514528600EDC9A5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804EC372514528600EDC9A5 /* SearchViewController.swift */; };
+		1804EC3D251452B600EDC9A5 /* SearchKeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804EC3C251452B600EDC9A5 /* SearchKeywordViewController.swift */; };
+		1804EC42251452C000EDC9A5 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804EC41251452C000EDC9A5 /* SearchResultViewController.swift */; };
+		1804EC47251452FE00EDC9A5 /* NavSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804EC46251452FE00EDC9A5 /* NavSearchView.swift */; };
+		1804EC4C2514532B00EDC9A5 /* SearchKeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804EC4B2514532B00EDC9A5 /* SearchKeywordCell.swift */; };
+		1804EC512514535400EDC9A5 /* SearchKeywordReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804EC502514535400EDC9A5 /* SearchKeywordReusableView.swift */; };
+		1804EC572514538000EDC9A5 /* FindHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804EC552514538000EDC9A5 /* FindHomeModel.swift */; };
+		1804EC582514538000EDC9A5 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804EC562514538000EDC9A5 /* SearchModel.swift */; };
+		1804EC812514565700EDC9A5 /* HomeImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804EC802514565700EDC9A5 /* HomeImageModel.swift */; };
+		1804EC8625148C7900EDC9A5 /* SearchKeywordResultsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804EC8525148C7900EDC9A5 /* SearchKeywordResultsListCollectionViewCell.swift */; };
 		18496606250F67E700E4815F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18496605250F67E700E4815F /* AppDelegate.swift */; };
 		1849660D250F67E700E4815F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1849660B250F67E700E4815F /* Main.storyboard */; };
 		1849660F250F67E800E4815F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1849660E250F67E800E4815F /* Assets.xcassets */; };
@@ -148,6 +158,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1804EC372514528600EDC9A5 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1804EC3C251452B600EDC9A5 /* SearchKeywordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchKeywordViewController.swift; sourceTree = "<group>"; };
+		1804EC41251452C000EDC9A5 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		1804EC46251452FE00EDC9A5 /* NavSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavSearchView.swift; sourceTree = "<group>"; };
+		1804EC4B2514532B00EDC9A5 /* SearchKeywordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchKeywordCell.swift; sourceTree = "<group>"; };
+		1804EC502514535400EDC9A5 /* SearchKeywordReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchKeywordReusableView.swift; sourceTree = "<group>"; };
+		1804EC552514538000EDC9A5 /* FindHomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindHomeModel.swift; sourceTree = "<group>"; };
+		1804EC562514538000EDC9A5 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		1804EC802514565700EDC9A5 /* HomeImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeImageModel.swift; sourceTree = "<group>"; };
+		1804EC8525148C7900EDC9A5 /* SearchKeywordResultsListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeywordResultsListCollectionViewCell.swift; sourceTree = "<group>"; };
 		18496602250F67E700E4815F /* Recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18496605250F67E700E4815F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1849660C250F67E700E4815F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -306,6 +326,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1804EC332514522F00EDC9A5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				1804EC362514525900EDC9A5 /* View */,
+				1804EC352514525000EDC9A5 /* Model */,
+				1804EC342514524500EDC9A5 /* Controller */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		1804EC342514524500EDC9A5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1804EC3C251452B600EDC9A5 /* SearchKeywordViewController.swift */,
+				1804EC372514528600EDC9A5 /* SearchViewController.swift */,
+				1804EC41251452C000EDC9A5 /* SearchResultViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1804EC352514525000EDC9A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1804EC552514538000EDC9A5 /* FindHomeModel.swift */,
+				1804EC562514538000EDC9A5 /* SearchModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1804EC362514525900EDC9A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1804EC502514535400EDC9A5 /* SearchKeywordReusableView.swift */,
+				1804EC4B2514532B00EDC9A5 /* SearchKeywordCell.swift */,
+				1804EC46251452FE00EDC9A5 /* NavSearchView.swift */,
+				1804EC8525148C7900EDC9A5 /* SearchKeywordResultsListCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		184965F9250F67E700E4815F = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +454,7 @@
 		1849663A250F689500E4815F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1804EC332514522F00EDC9A5 /* Search */,
 				1849673B2510572C00E4815F /* Model */,
 				1849673C2510572C00E4815F /* View */,
 				184967282510555400E4815F /* Controller */,
@@ -762,6 +823,7 @@
 		1849673B2510572C00E4815F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1804EC802514565700EDC9A5 /* HomeImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -990,12 +1052,14 @@
 				184966E6250F7E0100E4815F /* UITextViewExtensions.swift in Sources */,
 				18496683250F7C7400E4815F /* TableCornersCell.swift in Sources */,
 				184967342510563100E4815F /* HomeViewController.swift in Sources */,
+				1804EC47251452FE00EDC9A5 /* NavSearchView.swift in Sources */,
 				1849667B250F7C7400E4815F /* NavigationController.swift in Sources */,
 				1849675925120F4700E4815F /* HomeThemeListCollectionViewCell.swift in Sources */,
 				184966EF250F7E0100E4815F /* UIApplicationExtensions.swift in Sources */,
 				184966E5250F7E0100E4815F /* UITextFieldExtensions.swift in Sources */,
 				184966F5250F7E0100E4815F /* CGFloatExtensions.swift in Sources */,
 				1849667F250F7C7400E4815F /* BaseView.swift in Sources */,
+				1804EC4C2514532B00EDC9A5 /* SearchKeywordCell.swift in Sources */,
 				1849671C250F7E0100E4815F /* SwiftNormal.swift in Sources */,
 				1849670A250F7E0100E4815F /* EZ.swift in Sources */,
 				184966E1250F7E0100E4815F /* AlignedCollectionViewFlowLayout.swift in Sources */,
@@ -1032,16 +1096,19 @@
 				1849666B250F7C7400E4815F /* CommonAlertController.swift in Sources */,
 				18496709250F7E0100E4815F /* UIEdgeInsets.swift in Sources */,
 				184966FA250F7E0100E4815F /* UIColor+Extensions.swift in Sources */,
+				1804EC8625148C7900EDC9A5 /* SearchKeywordResultsListCollectionViewCell.swift in Sources */,
 				184966E7250F7E0100E4815F /* UIStoryboardExtensions.swift in Sources */,
 				1849670D250F7E0100E4815F /* BlockSwipe.swift in Sources */,
 				184967272510513600E4815F /* MoyaAPI.swift in Sources */,
 				1849671A250F7E0100E4815F /* NSObjectExtensions.swift in Sources */,
 				184966F1250F7E0100E4815F /* UIAlertControllerExtensions.swift in Sources */,
 				184966F4250F7E0100E4815F /* CGRectExtensions.swift in Sources */,
+				1804EC382514528600EDC9A5 /* SearchViewController.swift in Sources */,
 				184966DE250F7E0100E4815F /* MoyaNetworkManager.swift in Sources */,
 				1849671B250F7E0100E4815F /* QorumLogs.swift in Sources */,
 				18496669250F7C7400E4815F /* VersionUpdateViewController.swift in Sources */,
 				18496701250F7E0100E4815F /* DoubleExtensions.swift in Sources */,
+				1804EC582514538000EDC9A5 /* SearchModel.swift in Sources */,
 				1849666A250F7C7400E4815F /* PrivacyPolicyPopVC.swift in Sources */,
 				18496685250F7C7400E4815F /* CollectionViewCell.swift in Sources */,
 				184966F6250F7E0100E4815F /* ArrayExtensions.swift in Sources */,
@@ -1051,9 +1118,11 @@
 				18496700250F7E0100E4815F /* TimePassed.swift in Sources */,
 				184966FB250F7E0100E4815F /* UIImage+Extensions.swift in Sources */,
 				184966FC250F7E0100E4815F /* CGPointExtensions.swift in Sources */,
+				1804EC512514535400EDC9A5 /* SearchKeywordReusableView.swift in Sources */,
 				18496606250F67E700E4815F /* AppDelegate.swift in Sources */,
 				18496702250F7E0100E4815F /* CollectionsExtension.swift in Sources */,
 				184967402510579F00E4815F /* ClassificationViewController.swift in Sources */,
+				1804EC3D251452B600EDC9A5 /* SearchKeywordViewController.swift in Sources */,
 				1849667C250F7C7400E4815F /* NavigationView.swift in Sources */,
 				184966DD250F7E0100E4815F /* MoyaRequestProtocol.swift in Sources */,
 				1849673E2510575300E4815F /* MineViewController.swift in Sources */,
@@ -1072,10 +1141,12 @@
 				184966FF250F7E0100E4815F /* StringExtensions.swift in Sources */,
 				18496681250F7C7400E4815F /* WebViewController.swift in Sources */,
 				18496705250F7E0100E4815F /* CharacterExtensions.swift in Sources */,
+				1804EC812514565700EDC9A5 /* HomeImageModel.swift in Sources */,
 				184966F7250F7E0100E4815F /* PHAsset+Extensions.swift in Sources */,
 				18496682250F7C7400E4815F /* DZNEmptyDataSetSource+Extensions.swift in Sources */,
 				1849670B250F7E0100E4815F /* UIViewControllerExtensions.swift in Sources */,
 				184966EB250F7E0100E4815F /* UITableViewCell+Extensions.swift in Sources */,
+				1804EC572514538000EDC9A5 /* FindHomeModel.swift in Sources */,
 				18496704250F7E0100E4815F /* BundleExtensions.swift in Sources */,
 				18496714250F7E0100E4815F /* NSMutableAttributedString+Extensions.swift in Sources */,
 				18496688250F7C7400E4815F /* GroupTableViewController.swift in Sources */,
@@ -1084,6 +1155,7 @@
 				18496716250F7E0100E4815F /* NSAttributedString+Extensions.swift in Sources */,
 				184966F0250F7E0100E4815F /* UIImageViewExtensions.swift in Sources */,
 				184967552511E53F00E4815F /* HomeHeaderView.swift in Sources */,
+				1804EC42251452C000EDC9A5 /* SearchResultViewController.swift in Sources */,
 				184966E9250F7E0100E4815F /* UICollectionViewCell+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

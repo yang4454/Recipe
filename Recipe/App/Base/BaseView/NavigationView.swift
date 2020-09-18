@@ -117,6 +117,10 @@ extension NavigationView {
         rightNavBtn.setTitleColor(color, for: .normal)
         rightTapClosure = action
     }
+    
+    func setBackgroundImage(image :UIImage? = nil) {
+        backgroundColor = UIColor(patternImage: image!)
+    }
 }
 
 // MARK: - UI

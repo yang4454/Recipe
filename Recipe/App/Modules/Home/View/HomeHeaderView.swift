@@ -13,15 +13,15 @@ let kHomeHeaderDishesListImageHeight: CGFloat = 80
 import UIKit
 import FSPagerView
 
-//protocol HomeHeaderViewDelegate: NSObjectProtocol {
-//
-//    
-//}
+protocol HomeHeaderViewDelegate: NSObjectProtocol {
+    func toSearchViewController()
+    
+}
 
 /// 首页头部视图
 class HomeHeaderView: CollectionViewCell {
 
-//    var delegate: HomeHeaderViewDelegate?
+    var delegate: HomeHeaderViewDelegate?
     
     private var lists: [String] = ["home_banner", "home_banner","home_banner"]
     private var dishesList = [HomeDishesListItem]()
@@ -137,7 +137,7 @@ class HomeHeaderView: CollectionViewCell {
     }()
     
     @objc func searchBtnClick() {
-        
+        delegate?.toSearchViewController()
     }
     
     /// 轮播
