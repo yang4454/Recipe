@@ -24,8 +24,7 @@ class MineHeaderView: BaseView {
         imageViewFrame = imageView.frame
         
         addSubview(collectionView)
-        collectionView.frame = CGRect(x: 20, y: frame.height - kMineHeaderViewItemSize.height - 10, width: kScreenW-40, height: kMineHeaderViewItemSize.height)
-//        collectionView.setRoundCorners(corners: [.topLeft, .topRight], with: 6)
+        collectionView.frame = CGRect(x: 20, y: frame.height - kMineHeaderViewItemSize.height - 30, width: kScreenW-40, height: kMineHeaderViewItemSize.height)
         collectionView.setRoundCorners(corners: .allCorners, with: 6)
         
         DispatchQueue.global().async {
@@ -127,7 +126,7 @@ class MineHeaderItemsCell: CollectionViewCell {
     }()
     
     lazy var titleLabel: UILabel = {
-        let lb = UILabel(font: 12.mediumFont, color: UIColor.kColor666, alignment: .left)
+        let lb = UILabel(font: 16.mediumFont, color: UIColor.kColor666, alignment: .left)
         return lb
     }()
 }

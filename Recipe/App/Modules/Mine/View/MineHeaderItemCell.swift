@@ -87,12 +87,12 @@ class MineHeaderItemCell: TableViewCell {
     }()
     
     lazy var titleLabel: UILabel = {
-        let lb = UILabel(font: 14.mediumFont, color: UIColor.kColor333, alignment: .left)
+        let lb = UILabel(font: 16.mediumFont, color: UIColor.kColor333, alignment: .left)
         return lb
     }()
     
     lazy var descLabel: UILabel = {
-        let lb = UILabel(font: 14.mediumFont, color: UIColor.kColor666, alignment: .right)
+        let lb = UILabel(font: 16.mediumFont, color: UIColor.kColor666, alignment: .right)
         return lb
     }()
     

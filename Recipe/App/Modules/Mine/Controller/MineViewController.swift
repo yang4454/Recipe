@@ -12,7 +12,8 @@ import Kingfisher
 /// 我的界面
 class MineViewController: PlainTableViewController {
     
-    private var mineList = [MineHeaderItem]()
+    private var mineListOne = [MineHeaderItem]()
+    private var mineListTwo = [MineHeaderItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class MineViewController: PlainTableViewController {
     }
     
     lazy var headerView: MineHeaderView = {
-        let headerView = MineHeaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 230 + ez.screenStatusBarHeight))
+        let headerView = MineHeaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 250 + ez.screenStatusBarHeight))
         return headerView
     }()
     
@@ -72,7 +73,7 @@ extension MineViewController {
             case .success(let usedDiskCacheSize):
                 let cacheSize = Double(usedDiskCacheSize) / 1024 / 1024
                 QL1("图片缓存的大小： \(usedDiskCacheSize)")
-                self.mineList.first?.desc = String(format: "%.2fM", cacheSize)
+                self.mineListOne.first?.desc = String(format: "%.2fM", cacheSize)
                 break
             default:
                 break
@@ -98,12 +99,12 @@ extension MineViewController {
                     break
                 }
                 
-                self.mineList.append(cacheItem)
-                self.mineList.append(MineHeaderItem(title: "反馈问题", icon: "mine_cell_icon_feedback"))
-                self.mineList.append(MineHeaderItem(title: "去评分", icon: "min_cell_icon_user"))
-                self.mineList.append(MineHeaderItem(title: "用户协议", icon: "min_cell_icon_user"))
-                self.mineList.append(MineHeaderItem(title: "隐私政策", icon: "mine_cell_icon_ptorocl"))
-                self.mineList.append(MineHeaderItem(title: "关于我们", icon: "mine_cell_icon_me"))
+                self.mineListOne.append(cacheItem)
+                self.mineListOne.append(MineHeaderItem(title: "反馈问题", icon: "mine_cell_icon_feedback"))
+                self.mineListOne.append(MineHeaderItem(title: "去评分", icon: "min_cell_icon_user"))
+                self.mineListTwo.append(MineHeaderItem(title: "用户协议", icon: "min_cell_icon_user"))
+                self.mineListTwo.append(MineHeaderItem(title: "隐私政策", icon: "mine_cell_icon_ptorocl"))
+                self.mineListTwo.append(MineHeaderItem(title: "关于我们", icon: "mine_cell_icon_me"))
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -116,41 +117,63 @@ extension MineViewController {
 // MARK: - UITableView
 extension MineViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 20
+//    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return contentHeaderBackgroundView
+//    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 20
     }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return contentHeaderBackgroundView
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mineList.count
+        if section == 0 {
+            return mineListOne.count
+        }
+        return mineListTwo.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MineHeaderItemCell.cellIdentifier, for: indexPath) as! MineHeaderItemCell
-        cell.model = mineList[indexPath.row]
+        if indexPath.section == 0 {
+            cell.model = mineListOne[indexPath.row]
+            if indexPath.row ==  mineListOne.count - 1 {
+                cell.contentBackgroundView.setRoundCorners(corners: [.bottomLeft ,.bottomRight], with: 6)
+            }
+        }
+        else{
+            cell.model = mineListTwo[indexPath.row]
+            if indexPath.row ==  mineListTwo.count - 1 {
+                cell.contentBackgroundView.setRoundCorners(corners: [.bottomLeft ,.bottomRight], with: 6)
+            }
+        }
         if indexPath.row == 0 {
-//            cell.isFirs = true
             cell.contentBackgroundView.setRoundCorners(corners: [.topLeft ,.topRight], with: 6)
         }
-        if indexPath.row ==  mineList.count - 1 {
-            cell.contentBackgroundView.setRoundCorners(corners: [.bottomLeft ,.bottomRight], with: 6)
-        }
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = mineList[indexPath.row]
-        switch model.title {
+        var model: MineHeaderItem?
+        if indexPath.section == 0 {
+            model = mineListOne[indexPath.row]
+        }else{
+            model = mineListTwo[indexPath.row]
+        }
+        switch model?.title {
         case "清理缓存":
             let confit = CommonAlertManagerConfig(title: "确认要清除缓存吗？")
             confit.cancelTitle = "取消"
             CommonAlertController.show(inCtl: self, config: confit, agree: {
                 ImageCache.default.clearMemoryCache()
                 ImageCache.default.clearDiskCache()
-                self.mineList.first?.desc = ""
+                self.mineListOne.first?.desc = ""
                 self.tableView.reloadData()
             }, cancel: nil)
             break
