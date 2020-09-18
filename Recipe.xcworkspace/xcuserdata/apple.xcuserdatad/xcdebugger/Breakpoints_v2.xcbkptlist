@@ -14,8 +14,8 @@
             filePath = "Recipe/App/Modules/Home/Search/Controller/SearchResultViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "loadDatas()"
             landmarkType = "7">
          </BreakpointContent>

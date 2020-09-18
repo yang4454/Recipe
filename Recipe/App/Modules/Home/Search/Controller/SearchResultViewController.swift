@@ -23,6 +23,11 @@ class SearchResultViewController: ViewController {
     func searchList(key: String) {
         self.key = key
         lists.removeAll()
+        
+        self.lists.append(HomeImageModel(title: "纸杯小蛋糕", seeNumber: 100, starNumber: 200, introduction: "鸡蛋、地精面粉、白砂糖、玉米油", image: "home_banner"))
+        self.lists.append(HomeImageModel(title: "原味戚风（16寸）", seeNumber: 100, starNumber: 200, introduction: "鸡蛋（60克以上）、水或者牛奶五谷杂粮五谷杂粮五谷杂粮", image: "home_banner"))
+        self.lists.append(HomeImageModel(title: "五谷杂粮", seeNumber: 100, starNumber: 200, introduction: "五谷杂粮五谷杂粮", image: "home_banner"))
+        
         collectionView.reloadData()
         //startRefresh()
     }
@@ -40,13 +45,13 @@ class SearchResultViewController: ViewController {
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         
-        layout.itemSize = CGSize(width: kHomeImageWidth, height: kHomeImageHeight)
+        layout.itemSize = CGSize(width: SCREEN_WIDTH-40, height: 100)
         layout.minimumInteritemSpacing = kHomeImagePad
         layout.minimumLineSpacing = kHomeImagePad
         layout.sectionInset = UIEdgeInsets(top: kHomeImagePad, left: kHomeImagePad, bottom: 0, right: kHomeImagePad)
         
         let iv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        iv.backgroundColor = UIColor.clear
+        iv.backgroundColor = UIColor(hexString: "#F6F7F9")
         iv.showsHorizontalScrollIndicator = false
         iv.showsVerticalScrollIndicator = false
         iv.register(SearchKeywordResultsListCollectionViewCell.self, forCellWithReuseIdentifier: SearchKeywordResultsListCollectionViewCell.cellIdentifier)
@@ -54,6 +59,7 @@ class SearchResultViewController: ViewController {
         iv.delegate = self
         iv.emptyDataSetDelegate = self
         iv.emptyDataSetSource = self
+        
         return iv
     }()
 }
@@ -92,12 +98,12 @@ extension SearchResultViewController {
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension SearchResultViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3//lists.count
+        return lists.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchKeywordResultsListCollectionViewCell.cellIdentifier, for: indexPath) as! SearchKeywordResultsListCollectionViewCell
-//        let model = lists[indexPath.item]
+        cell.model = lists[indexPath.item]
         
         
         return cell

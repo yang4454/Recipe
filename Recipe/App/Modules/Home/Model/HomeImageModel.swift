@@ -11,6 +11,10 @@ import HandyJSON
 
 /// 图片模型
 class HomeImageModel: HandyJSON {
+    required init() {
+        
+    }
+    
     
     var score: Int = 0
     
@@ -56,7 +60,12 @@ class HomeImageModel: HandyJSON {
         var practiceCookingTitle: String = ""
     }
     
-    required init() {
+    init(title: String,seeNumber: Int,starNumber: Int,introduction: String,image: String = "") {
+        self.title = title
+        self.seeNumber = seeNumber
+        self.starNumber = starNumber
+        self.introduction = introduction
+        self.image = image
         
     }
 }
