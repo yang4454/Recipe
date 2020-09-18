@@ -11,6 +11,13 @@ import HandyJSON
 
 /// 图片模型
 class HomeImageModel: HandyJSON {
+    
+    var score: Int = 0
+    
+    /// custom - 是否选中
+    var selected: Bool = false
+    
+    
     /// 缩略图
     var thumbnail: String = ""
     
@@ -19,8 +26,6 @@ class HomeImageModel: HandyJSON {
     /// 高清图
     var image: String = ""
     
-    /// 简介
-    var introduction: String = ""
     
     /// mp4
     var mp4: String = ""
@@ -31,10 +36,25 @@ class HomeImageModel: HandyJSON {
     /// 标题
     var title: String = ""
     
-    var score: Int = 0
     
-    /// custom - 是否选中
-    var selected: Bool = false
+    //浏览量
+    var seeNumber: Int = 0
+    //收藏量
+    var starNumber: Int = 0
+    
+    /// 简介
+    var introduction: String = ""
+    
+    //食材清单
+    struct ingredientsList {
+        var ingredientsListGood: String = ""
+        var ingredientsListNumber: String = ""
+    }
+    //烹饪做法
+    struct practiceCooking {
+        var practiceCookingImage: String = ""
+        var practiceCookingTitle: String = ""
+    }
     
     required init() {
         

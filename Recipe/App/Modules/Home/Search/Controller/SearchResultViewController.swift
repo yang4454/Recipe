@@ -24,7 +24,7 @@ class SearchResultViewController: ViewController {
         self.key = key
         lists.removeAll()
         collectionView.reloadData()
-        startRefresh()
+        //startRefresh()
     }
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class SearchResultViewController: ViewController {
         iv.backgroundColor = UIColor.clear
         iv.showsHorizontalScrollIndicator = false
         iv.showsVerticalScrollIndicator = false
-        iv.register(HomeImageItemCell.self, forCellWithReuseIdentifier: HomeImageItemCell.cellIdentifier)
+        iv.register(SearchKeywordResultsListCollectionViewCell.self, forCellWithReuseIdentifier: SearchKeywordResultsListCollectionViewCell.cellIdentifier)
         iv.dataSource = self
         iv.delegate = self
         iv.emptyDataSetDelegate = self
@@ -89,25 +89,23 @@ extension SearchResultViewController {
     }
 }
 
- MARK: - UICollectionViewDataSource, UICollectionViewDelegate
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension SearchResultViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return lists.count
+        return 3//lists.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeImageItemCell.cellIdentifier, for: indexPath) as! HomeImageItemCell
-        let model = lists[indexPath.item]
-        cell.imageView.kf.setImage(with: URL(string: model.thumbnail), placeholder: Configs.Images.cellPlaceholder)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchKeywordResultsListCollectionViewCell.cellIdentifier, for: indexPath) as! SearchKeywordResultsListCollectionViewCell
+//        let model = lists[indexPath.item]
+        
+        
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let browser = PhotoBrowser()
-        browser.data(list: lists, pageIndex: indexPath.item)
-        let dict = ["from": "SEARCH", "keyword": self.key]
-        browser.slider(page: page, dict: dict)
-        browser.show()
+        
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
