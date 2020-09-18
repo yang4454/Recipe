@@ -113,6 +113,7 @@ extension HomeViewController {
 // MARK: - HomeHeaderViewDelegate
 extension HomeViewController: HomeHeaderViewDelegate {
     func toSearchViewController(){
-        self.pushVC(SearchViewController())
+//        self.pushVC(SearchViewController())
+        self.pushVC(MenuDetailsViewController())
     }
 }
